@@ -10,6 +10,7 @@
         </div>
     </div>
 
+    @role('security')
     @if(!auth()->user()->todayAttendance()?->clock_in || !auth()->user()->todayAttendance()?->clock_out)
     <a href="{{ route('qr.scan') }}">
         <div class="text-center block py-12 text-2xl bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
@@ -41,5 +42,6 @@
             </p>
         </div>
     </div>
+    @endrole
 </div>
 @endsection
