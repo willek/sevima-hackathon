@@ -13,12 +13,17 @@ class Attendance extends Model
 
     public function getClockInFormattedAttribute()
     {
-        return Carbon::createFromFormat('Y-m-d H:i:s', $this->clock_in)->format('d F y, H:i:s');
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->date .' '. $this->clock_in)->format('d F y, H:i:s');
     }
 
 
     public function getClockOutFormattedAttribute()
     {
-        return Carbon::createFromFormat('Y-m-d H:i:s', $this->clock_out)->format('d F y, H:i:s');
+        return Carbon::createFromFormat('Y-m-d H:i:s', $this->date .' '. $this->clock_out)->format('d F y, H:i:s');
+    }
+
+    public function office()
+    {
+        return $this->belongsTo(Office::class);
     }
 }

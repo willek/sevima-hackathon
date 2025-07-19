@@ -55,7 +55,7 @@ class User extends Authenticatable
 
     public function todayAttendance()
     {
-        return $this->attendances()->whereDate('clock_in', now()->format('Y-m-d'))->first();
+        return $this->attendances()->whereDate('date', now()->format('Y-m-d'))->first();
     }
 
     public function getMainRoleAttribute()

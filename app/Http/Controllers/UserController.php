@@ -61,4 +61,11 @@ class UserController extends Controller
 
         return redirect()->route('users.index');
     }
+
+    public function report($id)
+    {
+        $data['user'] = User::findOrFail($id);
+
+        return view('pages.users.report', $data);
+    }
 }

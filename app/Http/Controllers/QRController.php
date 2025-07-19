@@ -94,17 +94,18 @@ class QRController extends Controller
             $saveData = [
                 'office_id' => $data['office_id'],
                 'lat' => $req['lat1'],
-                'lng' => $req['lng1']
+                'lng' => $req['lng1'],
+                'date' => now()->format('Y-m-d')
             ];
 
             if ($action === 'in' && !$isCheckedIn) {
-                $saveData['clock_in'] = now();
+                $saveData['clock_in'] = now()->format('H:i:s');
 
                 $user->attendances()->create($saveData);
 
                 return response()->json(['status' => 'success', 'message' => 'Successfully clocked in']);
             } else if ($action === 'out' && $isCheckedIn && !$isCheckedOut) {
-                $saveData['clock_out'] = now();
+                $saveData['clock_out'] = now()->format('H:i:s');
 
                 $user->attendances()->where('office_id', $saveData['office_id'])->whereDate('clock_in', Carbon::today())->update($saveData);
 

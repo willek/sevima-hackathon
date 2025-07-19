@@ -18,8 +18,9 @@ return new class extends Migration
             $table->unsignedBigInteger('office_id');
             $table->foreign('office_id')->references('id')->on('offices')->onDelete('cascade');
 
-            $table->dateTime('clock_in');
-            $table->dateTime('clock_out')->nullable();
+            $table->date('date');
+            $table->time('clock_in');
+            $table->time('clock_out')->nullable();
 
             $table->string('lat');
             $table->string('lng');
