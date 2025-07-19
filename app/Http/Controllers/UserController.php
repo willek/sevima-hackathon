@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -67,5 +68,16 @@ class UserController extends Controller
         $data['user'] = User::findOrFail($id);
 
         return view('pages.users.report', $data);
+    }
+
+    public function pdf($id)
+    {
+        $data['user'] = User::findOrFail($id);
+
+        $pdf = Pdf::loadView('pages.users.pdf', $data);
+
+        $filename = sprintf('attendance-report-%s-%s.pdf', $data['user']->email, now()->format('Y_m_d-H_i_s'));
+
+        return $pdf->download($filename);
     }
 }

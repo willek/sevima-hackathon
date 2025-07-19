@@ -5,6 +5,12 @@
         <div class="relative overflow-x-auto">
             <div class="border-b mb-4 pb-4 flex justify-between">
                 <h1 class="my-auto">User Attendances</h1>
+
+                <a href="{{ route('users.pdf', $user->id) }}">
+                    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                        Download PDF
+                    </button>
+                </a>
             </div>
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase dark:text-gray-400">

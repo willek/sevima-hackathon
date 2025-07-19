@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['middleware' => 'role:admin'], function () {
         Route::get('/users/{id}/report', [UserController::class, 'report'])->name('users.report');
+        Route::get('/users/{id}/pdf', [UserController::class, 'pdf'])->name('users.pdf');
         Route::resource('users', UserController::class);
 
         Route::resource('offices', OfficeController::class);
