@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Auth;
 class AuthenticationController extends Controller
 {
     public function login() {
+        if (Auth::check()) {
+            return redirect()->route('dashboard');
+        }
+
         return view('pages.auth.login');
     }
 

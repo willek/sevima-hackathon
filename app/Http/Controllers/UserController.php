@@ -30,7 +30,7 @@ class UserController extends Controller
     }
 
 
-    public function edit(Request $request, $id) {
+    public function edit($id) {
         $data['data'] = User::findOrFail($id);
 
         return view('pages.users.edit', $data);

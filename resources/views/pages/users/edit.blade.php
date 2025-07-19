@@ -17,7 +17,7 @@
                 <h1 class="my-auto">Edit User</h1>
             </div>
 
-            <form action="{{ route('users.update', $data) }}" method="POST" class="">
+            <form action="{{ route('users.update', $data) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="mb-5">
