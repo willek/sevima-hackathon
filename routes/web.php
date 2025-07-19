@@ -23,6 +23,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/generate/{id}', [QRController::class, 'generate'])->name('generate');
         Route::get('/scan', [QRController::class, 'scan'])->name('scan');
         Route::post('/scan', [QRController::class, 'scan_post'])->name('scan_post');
+
+        Route::get('debug', [QRController::class, 'debug'])->name('debug');
     });
 
     Route::group(['middleware' => 'role:admin'], function () {

@@ -48,6 +48,16 @@ class User extends Authenticatable
         ];
     }
 
+    public function attendances()
+    {
+        return $this->hasMany(Attendance::class);
+    }
+
+    public function todayAttendance()
+    {
+        return $this->attendances()->whereDate('clock_in', now()->format('Y-m-d'))->first();
+    }
+
     public function getMainRoleAttribute()
     {
         return $this->getRoleNames()->first();

@@ -24,7 +24,8 @@ class UserController extends Controller
             'password' => 'required|confirmed'
         ]);
 
-        User::create($request->all());
+        $user = User::create($request->all());
+        $user->assignRole('security');
 
         return redirect()->route('users.index');
     }

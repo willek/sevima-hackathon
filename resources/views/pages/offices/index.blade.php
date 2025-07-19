@@ -29,7 +29,7 @@
                         <th scope="col" class="px-6 py-3">
                             Lng
                         </th>
-                        <th scope="col" class="px-6 py-3">
+                        <th scope="col" class="px-6 py-3 text-center">
                             Action
                         </th>
                     </tr>
@@ -53,7 +53,7 @@
                                 {{ $value->lng }}
                             </td>
                             <td class="px-6 py-4">
-                                <div class="flex space-between">
+                                <div class="flex justify-center">
                                     <a href="{{ route('qr.generate', $value->id) }}">
                                         <button type="button" class="text-white bg-yellow-700 hover:bg-yellow-800 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-yellow-600 dark:hover:bg-yellow-700 focus:outline-none dark:focus:ring-yellow-800">
                                             QRCode
@@ -64,13 +64,13 @@
                                             Edit
                                         </button>
                                     </a>
-                                    <form action="{{ route('offices.destroy', $value->id) }}" method="POST">
+                                    {{-- <form action="{{ route('offices.destroy', $value->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">
                                             Delete
                                         </button>
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </td>
                         </tr>
